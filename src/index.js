@@ -6,6 +6,7 @@ import prettierParserEspree from 'prettier/parser-espree'
 import prettierParserMeriyah from 'prettier/parser-meriyah'
 import prettierParserFlow from 'prettier/parser-flow'
 import prettierParserTypescript from 'prettier/parser-typescript'
+import prettierParserGlimmer from 'prettier/parser-glimmer'
 import { createContext as createContextFallback } from 'tailwindcss/lib/lib/setupContextUtils'
 import { generateRules as generateRulesFallback } from 'tailwindcss/lib/lib/generateRules'
 import resolveConfigFallback from 'tailwindcss/resolveConfig'
@@ -406,6 +407,7 @@ export const parsers = {
     transformJavaScript
   ),
   flow: createParser(prettierParserFlow.parsers.flow, transformJavaScript),
+  glimmer: createParser(prettierParserGlimmer.parsers.glimmer, transformHtml(['class'])),
   typescript: createParser(
     prettierParserTypescript.parsers.typescript,
     transformJavaScript
